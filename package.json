@@ -1,0 +1,8 @@
+{
+  "name": "host-spot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Find a host location",
+  "author": "Felipe Leão <felipe@felipeleao.com> (http://felipeleao.com)",
+  "license": "MIT"
+}
