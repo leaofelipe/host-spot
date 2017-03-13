@@ -7,6 +7,16 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.8.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11",
+    "gulp-webserver": "^0.9.1",
+    "standard": "^9.0.1"
+  },
+  "standard": {
+    "globals": [
+      "angular",
+      "App",
+      "L"
+    ]
   }
 }
