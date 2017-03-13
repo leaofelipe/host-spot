@@ -12,3 +12,12 @@
   color: #888;
   list-style: none;
 }
+
+.searchForm {
+  width: 300px;
+  height: 300px;
+  background: black;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
