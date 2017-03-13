@@ -1,7 +1,8 @@
-<div class="searchForm" ng-controller="SearchFormCtrl">
-  <form ng-submit="submitForm()">
-    <input type="text" placeholder="Your host address" ng-model="address" />
-    <input type="submit" value="submit" />
-    <input type="button" value="clear" />
+<md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl"> 
+  <form ng-submit="submitForm()" flex md-inline-form>
+    <md-input-container>
+      <input ng-model="address" placeholder="Type a host address"/>
+    </md-input-container>
+    <md-button class="md-raised md-primary" ng-click="submitForm()">search</md-button>
   </form>
-</div>
+</md-content>

@@ -1,9 +1,18 @@
-.map-wrapper {
+.main {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.map-wrapper {
+  height: 85%;
+  width: 100%;
+}
+
+.map-wrapper .map {
+  height: 100%;
 }
 
 .serverInfo {
@@ -12,13 +21,10 @@
   color: #888;
   list-style: none;
 }
-
 .searchForm {
-  width: 300px;
-  height: 300px;
-  background: black;
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  z-index: 999999;
+  background: #2b2b2b;
+  height: 15%;
+  padding: 0;
+  overflow: hidden;
 }
+

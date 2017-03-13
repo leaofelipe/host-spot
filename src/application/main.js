@@ -5,5 +5,7 @@ window.App = angular.module('hostSpot', [
   'ngMaterial'
 ])
 .config(($mdThemingProvider) => {
-  $mdThemingProvider.theme('default').dark()
+  $mdThemingProvider.theme('default')
+  .primaryPalette('cyan')
+  .dark()
 })
