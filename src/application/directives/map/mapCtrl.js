@@ -2,26 +2,37 @@
   'use strict'
 
   let options = {
-    tile: 'https://api.mapbox.com/styles/v1/leaofelipe/cj07ketih000c2ss4lzo9qw1e/tiles/256/{z}/{x}/{y}?' +
-          'access_token=pk.eyJ1IjoibGVhb2ZlbGlwZSIsImEiOiJjajA3a2NhcHowMWFqMndvdThnMWp0eXRwIn0.vEWefMT25jWniq0k30NcEw',
+    tile: 'https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}' +
+          '?access_token=pk.eyJ1IjoibGVhb2ZlbGlwZSIsImEiOiJjajA3a2NhcHowMWFqMndvdThnMWp0eXRwIn0.vEWefMT25jWniq0k30NcEw',
     maxZoom: 18
   }
 
-  function MapCtrl ($scope, mapService) {
-    console.log(mapService.a)
-/*     let map = L.map('mainMap') */
-/*     let position = window.localStorage.location */
-/*     let pos = [position.coords.latitude, position.coords.longitude] */
-/*     L.tileLayer(options.tile, {maxZoom: options.maxZoom}).addTo(map) */
-
-/*     let marker = L.marker(pos, { */
-/*       title: 'You are here!' */
-/*     }) */
-/*     marker.addTo(map) */
-/*     map.setView(pos, 15) */
+  function MapCtrl ($scope, MapService) {
+    MapService.getHostData()
+    .then(this.setPosition, this.errorHandling)
   }
 
-  MapCtrl.$inject = ['$scope', 'mapService']
+  MapCtrl.prototype.errorHandling = function (err) {
+    console.log('Error!', err)
+    return false
+  }
+
+  MapCtrl.prototype.setPosition = function (response) {
+    let map = L.map('mainMap')
+    let serverData = response.data
+    let pos = [serverData.lat, serverData.lon]
+    L.tileLayer(options.tile, {
+      maxZoom: options.maxZoom
+    }).addTo(map)
+    map.setView(pos, 13)
+
+    let marker = L.marker(pos)
+    marker.addTo(map)
+    marker.bindPopup(`<ul class="serverInfo"><li><strong>IP:</strong> ${serverData.query}</li><li><strong>ISP:</strong>  ${serverData.isp}</li></ul>`)
+    marker.openPopup()
+  }
+
+  MapCtrl.$inject = ['$scope', 'MapService']
   App.controller('MapCtrl', MapCtrl)
   App.directive('map', () => {
     return {
