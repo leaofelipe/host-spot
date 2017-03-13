@@ -9,3 +9,7 @@ window.App = angular.module('hostSpot', [
   .primaryPalette('cyan')
   .dark()
 })
+.config(($mdIconProvider) => {
+  $mdIconProvider
+  .icon('logo', 'assets/images/logo.svg', 24)
+})

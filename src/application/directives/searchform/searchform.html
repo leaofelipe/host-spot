@@ -1,8 +1,12 @@
-<md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl"> 
-  <form ng-submit="submitForm()" flex md-inline-form>
+<md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl">
+  <div class="md-padding logo" flex="20" layout="row" layout-align="start center">
+    <img src="assets/images/logo.svg" width="20px" height="20px" alt="HostSpot" />
+    <h1 layout-padding>HostSpot</h1>
+  </div>
+<!--  <form ng-submit="submitForm()" flex md-inline-form>
     <md-input-container>
       <input ng-model="address" placeholder="Type a host address"/>
     </md-input-container>
     <md-button class="md-raised md-primary" ng-click="submitForm()">search</md-button>
-  </form>
+  </form> -->
 </md-content>
