@@ -20,16 +20,21 @@
 
   MapCtrl.prototype.search = function (address) {
     this.MapService.getHostData(address)
-    .then(this.setPosition, this.serrorHandling)
+    .then(this.setPosition.bind(this), this.serrorHandling)
   }
 
   MapCtrl.prototype.setPosition = function (response) {
     let serverData = response.data
     let position = [serverData.lat, serverData.lon]
-    let marker = L.marker(position)
-    /* marker.addTo(this.map) */
-    /* marker.bindPopup(`<ul class="serverInfo"><li><strong>IP:</strong> ${serverData.query}</li><li><strong>ISP:</strong> ${serverData.isp}</li></ul>`) */
-    /* marker.openPopup() */
+    let marker = L.circleMarker(position)
+    marker.addTo(this.map)
+    this.map.flyTo(position, 15, {
+      duration: 1.8,
+      easeLinearity: 1
+    })
+
+    marker.bindPopup(`<ul class="serverInfo"><li><strong>IP:</strong> ${serverData.query}</li><li><strong>ISP:</strong> ${serverData.isp}</li></ul>`)
+    marker.openPopup()
   }
 
   MapCtrl.prototype.errorHandling = function (err) {
