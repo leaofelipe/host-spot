@@ -25,7 +25,9 @@
     }
 
     function isValidAddress (address) {
-      return true
+      let pattern = new RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) // eslint-disable-line no-useless-escape
+
+      return pattern.test(address)
     }
   }
 

@@ -8,9 +8,6 @@
     <form ng-submit="submitForm()" layout="row">
       <md-input-container class="md-block" md-no-float>
         <input ng-model="address" placeholder="type a host address" />
-        <div ng-messages="address.$error" ng-auto-hide>
-          <div ng-message="required">invalid address</div>
-        </div>
       </md-input-container>
     </form>
     <md-button class="md-raised md-primary" ng-disabled="false" ng-click="submitForm()">locate</md-button>
