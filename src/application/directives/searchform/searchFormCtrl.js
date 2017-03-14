@@ -1,37 +1,19 @@
 (function () {
   'use strict'
 
-  function SearchFormCtrl ($scope, LocationService) {
+  function SearchFormCtrl ($scope) {
     $scope.submitForm = function () {
       if (!isValidAddress($scope.address)) return
       $scope.$emit('newSearch', {address: $scope.address})
     }
 
-    $scope.userLocationChange = function () {
-      if ($scope.personalLocation === true) {
-        LocationService.getUserPosition((position) => {
-          $scope.$emit('userPosition', {
-            position: [position.coords.latitude, position.coords.longitude]
-          })
-        }, (err) => {
-          console.log(err)
-          $scope.personalLocation = false
-        }, {
-          timeout: 3000
-        })
-      } else {
-        $scope.$emit('userPosition', {})
-      }
-    }
-
     function isValidAddress (address) {
       let pattern = new RegExp(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/) // eslint-disable-line no-useless-escape
-
       return pattern.test(address)
     }
   }
 
-  SearchFormCtrl.$inject = ['$scope', 'LocationService']
+  SearchFormCtrl.$inject = ['$scope']
   App.controller('SearchFormCtrl', SearchFormCtrl)
   App.directive('searchForm', () => {
     return {

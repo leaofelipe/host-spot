@@ -36,3 +36,17 @@ h1 {
 md-input-container .md-errors-spacer{
   min-height: 0px !important;
 }
+
+.userLocation {
+  top: 78px;
+  right: 8px;
+  padding: 0 10px;
+  position: absolute;
+  z-index: 999999;
+  border-radius: 10px;
+  background: #272727;
+}
+
+md-switch {
+  margin: 0;
+}
