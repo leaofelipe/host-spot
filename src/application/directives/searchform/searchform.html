@@ -1,5 +1,5 @@
 <md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl">
-  <div class="logo" layout-margin flex="20" layout="row" layout-align="start center">
+  <div class="logo" layout-margin flex="14" layout="row" layout-align="start center">
     <img src="assets/images/logo.svg" width="20px" height="20px" alt="HostSpot" />
     <h1 layout-padding>HostSpot</h1>
   </div>
@@ -14,5 +14,8 @@
       </md-input-container>
     </form>
     <md-button class="md-raised md-primary" ng-disabled="false" ng-click="submitForm()">locate</md-button>
+    <md-switch ng-model="personalLocation" ng-change="userLocationChange()" class="md-primary">
+        Your location
+    </md-switch>
   </div>
 </md-content>
