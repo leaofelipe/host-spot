@@ -32,7 +32,6 @@
         <li><strong>Location:</strong> ${position[0]}, ${position[1]}</li>
       </ul>`)
       .openPopup()
-
       this.fitView(position)
     }
 
@@ -41,6 +40,8 @@
         color: '#ffffff'
       })
       this.userMarker.addTo(this.geoMap)
+      .bindPopup('You are here.')
+      .openPopup()
       this.fitView(position)
     }
 
@@ -52,7 +53,8 @@
 
     GeoMap.prototype.fitView = function (position) {
       if (this.userMarker && this.serverMarker) {
-        this.geoMap.fitBounds([this.userMarker, this.serverMarker])
+        let group = L.featureGroup([this.userMarker, this.serverMarker])
+        this.geoMap.fitBounds(group.getBounds())
       } else {
         this.geoMap.flyTo(position)
       }
