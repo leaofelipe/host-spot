@@ -1,12 +1,18 @@
 <md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl">
-  <div class="md-padding logo" flex="20" layout="row" layout-align="start center">
+  <div class="logo" layout-margin flex="20" layout="row" layout-align="start center">
     <img src="assets/images/logo.svg" width="20px" height="20px" alt="HostSpot" />
     <h1 layout-padding>HostSpot</h1>
   </div>
-<!--  <form ng-submit="submitForm()" flex md-inline-form>
-    <md-input-container>
-      <input ng-model="address" placeholder="Type a host address"/>
-    </md-input-container>
-    <md-button class="md-raised md-primary" ng-click="submitForm()">search</md-button>
-  </form> -->
+
+  <div layout-margin flex layout="row" layout-align="end center">
+    <form ng-submit="submitForm()" layout="row">
+      <md-input-container class="md-block" md-no-float>
+        <input ng-model="address" placeholder="type a host address" />
+        <div ng-messages="address.$error" ng-auto-hide>
+          <div ng-message="required">invalid address</div>
+        </div>
+      </md-input-container>
+    </form>
+    <md-button class="md-raised md-primary" ng-disabled="false" ng-click="submitForm()">locate</md-button>
+  </div>
 </md-content>
