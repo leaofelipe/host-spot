@@ -10,8 +10,6 @@ $ npm run in
 ```
 ##### Run:  
 ```bash
-$ gulp
-```
-```
-Application runs in: localhost:8000
+$ gulp  
+Open: localhost:8000
 ```

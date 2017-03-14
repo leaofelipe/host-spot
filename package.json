@@ -18,5 +18,8 @@
       "App",
       "L"
     ]
+  },
+  "scripts": {
+    "in": "npm install && bower install"
   }
 }
