@@ -11,7 +11,7 @@
       if ($scope.personalLocation === true) {
         LocationService.getUserPosition((position) => {
           $scope.$emit('userPosition', {
-            position: [position.latitude, position.longitude]
+            position: [position.coords.latitude, position.coords.longitude]
           })
         }, (err) => {
           console.log(err)

@@ -37,7 +37,7 @@
 
     GeoMap.prototype.createUserMarker = function (position) {
       this.userMarker = L.circleMarker(position, {
-        color: '#ffffff'
+        color: '#53ef36'
       })
       this.userMarker.addTo(this.geoMap)
       .bindPopup('You are here.')

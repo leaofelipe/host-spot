@@ -1,11 +1,12 @@
 <md-content class="searchForm" layout="row" ng-controller="SearchFormCtrl">
+
   <div class="logo" layout-margin flex="14" layout="row" layout-align="start center">
     <img src="assets/images/logo.svg" width="20px" height="20px" alt="HostSpot" />
-    <h1 layout-padding>HostSpot</h1>
+    <h1 layout-padding hide-xs>HostSpot</h1>
   </div>
 
   <div layout-margin flex layout="row" layout-align="end center">
-    <form ng-submit="submitForm()" layout="row">
+    <form ng-submit="submitForm()" layout="row" layout-xs="column">
       <md-input-container class="md-block" md-no-float>
         <input ng-model="address" placeholder="type a host address" />
       </md-input-container>
